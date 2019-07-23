@@ -7,36 +7,59 @@ variable "name" {
   description = "elasticache name"
 }
 
-variable "environment" {
-  description = "component environment"
+variable "env" {
+  description = "environment name"
 }
 
 variable "node_type" {
-  description = "node type"
-  #default = "cache.t2.micro"
+  description = "Node type"
+}
+
+variable "engine" {
+  description = "engine"
+  default = "memcached"
 }
 
 variable "num_cache_nodes" {
   description = "node number"
 }
 
-variable "parameter_group_name" {
-  description = "node parameter groups"
-}
-
 variable "port" {
   description = "node port"
 }
 
-variable "security_group_access" {
-  description = "security group id to allow access"
+variable "parameter_family" {
+  description = "Parameter family name"
 }
 
-# vpc variables
-variable "vpc_id" {
-  description = "vpc id"
+//variable "parameters" {
+//  type = "map"
+//  default = {
+//  }
+//  description = "map of parameters"
+//}
+
+variable "subnet_ids" {
+  type        = "list"
+  description = "Subnet ids"
 }
-variable "subnets_id" {
-  type = "list"
-  description = "Subnets id"
+
+variable "security_group_ids" {
+  type        = "list"
+  description = "Security groups id"
 }
+
+//variable "security_group_access" {
+//  type = "list"
+//  description = "security group id to allow access"
+//}
+//# vpc variables
+//variable "vpc_id" {
+//  description = "vpc id"
+//}
+//variable "subnet_1_id" {
+//  description = "Subnet id"
+//}
+//variable "subnet_2_id" {
+//  description = "Subnet id"
+//}
